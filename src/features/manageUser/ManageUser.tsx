@@ -15,12 +15,10 @@ function ManageUser() {
         'Users',
         'Payments',
     ];
-    const [contentIndex, setContentIndex] = useState(0);
     const [selectedKey, setSelectedKey] = useState('0');
-    const changeSelectedKey = (event: any) => {
-        const key = event.key;
+    const changeSelectedKey = (event: { key: string }) => {
+        const { key } = event;
         setSelectedKey(key);
-        setContentIndex(+key);
     };
     const Menu = (
         <MainMenu
