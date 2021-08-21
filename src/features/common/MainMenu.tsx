@@ -1,23 +1,22 @@
-
-import { Menu } from "antd";
+import { Menu } from 'antd';
 
 type MainMenuType = {
     menuItems: string[];
     selectedKey: string;
-    changeSelectedKey: (event: { key: string }) => void
-}
+    changeSelectedKey: (event: { key: string }) => void;
+};
 
 const MainMenu = ({
     menuItems,
     selectedKey,
-    changeSelectedKey
+    changeSelectedKey,
 }: MainMenuType) => (
     <Menu mode="inline" selectedKeys={[selectedKey]}>
-        {menuItems.map((menuItem) =>
+        {menuItems.map((menuItem) => (
             <Menu.Item key={menuItem} onClick={changeSelectedKey}>
                 {menuItem}
             </Menu.Item>
-        )}
+        ))}
     </Menu>
-)
+);
 export default MainMenu;

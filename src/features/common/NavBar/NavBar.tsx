@@ -1,8 +1,8 @@
-import { useState,ReactElement } from "react";
-import { Drawer, Button } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
-import "./NavBar.css";
-import logo from "../../../assets/images/imarat-color-1.svg";
+import { useState, ReactElement } from 'react';
+import { Drawer, Button } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
+import './NavBar.css';
+import logo from '../../../assets/images/imarat-color-1.svg';
 
 const NavBar = ({ menu }: { menu: JSX.Element }): ReactElement<any, any> => {
     const [visible, setVisible] = useState(false);
@@ -30,4 +30,3 @@ const NavBar = ({ menu }: { menu: JSX.Element }): ReactElement<any, any> => {
 };
 
 export default NavBar;
-
