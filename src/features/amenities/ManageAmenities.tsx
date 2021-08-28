@@ -147,12 +147,14 @@ export default function ManageAmenities() {
 				</Table>
 			</ContainerCard>
 			<Modal
-				title="Basic Modal"
 				visible={createAmenitiesVisible}
 				// onOk={handleOk}
 				okText="Create"
+				footer={null}
 				onCancel={() => setCreateAmenitiesVisible(false)}
+				centered
 			>
+				<h2 className="text-2xl mb-4">Add Amenity</h2>
 				<GenericForm
 					formData={createAmenityFormData}
 					layout="vertical"

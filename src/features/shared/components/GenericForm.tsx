@@ -14,15 +14,6 @@ import { useImage } from 'features/shared/components/image/UploadImageHook';
 
 const { Option } = Select;
 
-const FormTitle = styled.p`
-	${tw`
-        text-xl
-        my-2
-        ml-20
-        mb-8
-    `}
-`;
-
 const Error = styled.div`
 	${tw`
         text-red-500
@@ -79,7 +70,6 @@ export default function GenericForm(props: PropsType) {
 				firstName: 'ab',
 			}}
 		>
-			<FormTitle>User Details</FormTitle>
 			{fieldsData.map((fieldData) => {
 				const {
 					type,
@@ -105,7 +95,6 @@ export default function GenericForm(props: PropsType) {
 								key={fieldName}
 								label={label}
 								required={required}
-								style={{ marginBottom: '0.5rem' }}
 							>
 								<Controller
 									name={fieldName}
@@ -113,6 +102,59 @@ export default function GenericForm(props: PropsType) {
 									rules={validations}
 									render={({ field }) => (
 										<Input
+											placeholder={label}
+											defaultValue={defaultValue}
+											{...field}
+										/>
+									)}
+								/>
+
+								{errors[fieldName] && (
+									<Error>{errors[fieldName].message}</Error>
+								)}
+							</Form.Item>
+						);
+
+					case FORM_TYPES.NUMBER:
+						return (
+							<Form.Item
+								key={fieldName}
+								label={label}
+								required={required}
+							>
+								<Controller
+									name={fieldName}
+									control={control}
+									rules={validations}
+									render={({ field }) => (
+										<Input
+											type="number"
+											placeholder={label}
+											defaultValue={defaultValue}
+											{...field}
+										/>
+									)}
+								/>
+
+								{errors[fieldName] && (
+									<Error>{errors[fieldName].message}</Error>
+								)}
+							</Form.Item>
+						);
+
+					case FORM_TYPES.TEXTAREA:
+						return (
+							<Form.Item
+								key={fieldName}
+								label={label}
+								required={required}
+							>
+								<Controller
+									name={fieldName}
+									control={control}
+									rules={validations}
+									render={({ field }) => (
+										<Input.TextArea
 											placeholder={label}
 											defaultValue={defaultValue}
 											{...field}
@@ -200,17 +242,16 @@ export default function GenericForm(props: PropsType) {
 				}
 				return null;
 			})}
-			<Button
-				style={{
-					textTransform: 'capitalize',
-					marginLeft: isMobile ? 0 : '10%',
-				}}
-				type="primary"
-				loading={disable}
-				htmlType="submit"
-			>
-				{submitLabel}
-			</Button>
+			<div className="text-center">
+				<Button
+					className="uppercase font-semibold"
+					type="primary"
+					loading={disable}
+					htmlType="submit"
+				>
+					{submitLabel}
+				</Button>
+			</div>
 		</Form>
 	);
 }

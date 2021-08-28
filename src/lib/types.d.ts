@@ -13,7 +13,7 @@ export type ColorMap = {
 
 export type FieldType = {
 	name: string;
-	type: string;
+	type: 'text' | 'textarea' | 'number' | 'file' | 'checkbox';
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	defaultValue: any;
 	label: string;
