@@ -165,7 +165,7 @@ Following are the simple steps to run this project.
    npm test
    ```
 
-## Credentials
+## Test Credentials
 
 *To login in the app as admin use no. 9999999999 and otp 123456*  
 *To login in the app as resident use no. 8888888888 and otp 123456*  
