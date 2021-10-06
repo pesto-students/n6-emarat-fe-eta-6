@@ -107,6 +107,10 @@ export const API_CONFIG: ApiConfigType = {
 		url: '/isRegistered/',
 		method: 'POST',
 	},
+	mockLogin: {
+		url: '/mockLogin/',
+		method: 'POST',
+	},
 };
 
 export const PATTERNS = {
