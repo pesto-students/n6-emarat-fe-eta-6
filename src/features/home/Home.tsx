@@ -82,7 +82,10 @@ export default function Home() {
 								order={1}
 								className="flex items-center"
 							>
-								<AnimateOnLoad animationStartClasses="translate-x-60 opacity-0">
+								<AnimateOnLoad
+									className="w-full"
+									animationStartClasses="translate-x-60 opacity-0"
+								>
 									<LoginForm />
 								</AnimateOnLoad>
 							</Col>
