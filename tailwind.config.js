@@ -13,6 +13,8 @@ module.exports = {
 					},
 					secondary: {
 						default: '#125D98',
+						hover: '#094D82',
+						active: '#023359',
 					},
 					tertiary: {
 						default: '#3C8DAD',

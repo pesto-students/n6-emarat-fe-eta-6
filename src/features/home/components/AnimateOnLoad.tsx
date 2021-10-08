@@ -1,7 +1,8 @@
-import styled from 'styled-components';
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 export type PropsType = {
+	className?: string;
 	animationStartClasses: string;
 	children: React.ReactNode;
 };
@@ -9,6 +10,7 @@ export type PropsType = {
 export default function AnimateOnLoad({
 	animationStartClasses,
 	children,
+	className = '',
 }: PropsType) {
 	const [animationClasses, setAnimationClasses] = useState<string>(
 		animationStartClasses
@@ -22,7 +24,11 @@ export default function AnimateOnLoad({
 		};
 	}, []);
 
-	return <Root className={`transform ${animationClasses}`}>{children}</Root>;
+	return (
+		<Root className={`${className} transform ${animationClasses}`}>
+			{children}
+		</Root>
+	);
 }
 
 const Root = styled.div`

@@ -7,6 +7,7 @@ import { ColorType, ColorMap } from 'lib/types';
 type PropsType = {
 	type?: 'button' | 'submit';
 	children: React.ReactNode;
+	className?: string;
 	color?: ColorType;
 	pilled?: boolean;
 	disabled?: boolean;
@@ -16,6 +17,7 @@ type PropsType = {
 
 export default function Button({
 	type = 'button',
+	className = '',
 	color = 'primary',
 	pilled = false,
 	disabled = false,
@@ -33,6 +35,8 @@ export default function Button({
 			'text-green-100 bg-green-600 focus:ring-green-200 hover:bg-green-700 active:bg-green-800',
 		'emarat-accent':
 			'text-white bg-emarat-accent-default hover:bg-emarat-accent-hover active:bg-emarat-accent-active',
+		'emarat-secondary':
+			'text-white bg-emarat-secondary-default hover:bg-emarat-secondary-hover active:bg-emarat-secondary-active',
 	};
 
 	return (
@@ -40,7 +44,7 @@ export default function Button({
 			type={type}
 			className={`${colors[color]} ${
 				pilled ? 'rounded-full' : 'rounded-lg'
-			}`}
+			} ${className}`}
 			disabled={disabled || loading}
 			onClick={onClick}
 		>
@@ -54,12 +58,13 @@ export default function Button({
 
 const TButton = styled.button`
 	${tw`
-		flex
+		inline-flex
 		items-center
+		justify-center
 		transition-colors
 		duration-300
 		py-3
-		px-10
+		px-8
 		font-bold
 		focus:ring
 		disabled:opacity-70

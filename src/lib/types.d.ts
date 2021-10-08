@@ -6,7 +6,8 @@ export type ColorType =
 	| 'danger'
 	| 'warning'
 	| 'success'
-	| 'emarat-accent';
+	| 'emarat-accent'
+	| 'emarat-secondary';
 
 export type ColorMap = {
 	[key in ColorType]?: string;
